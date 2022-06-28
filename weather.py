@@ -9,6 +9,7 @@ from pprint import pp
 
 
 BASE_WEATHER_API_URL = "http://api.openweathermap.org/data/2.5/weather"
+PADDING = 20
 
 
 def _get_api_key():
@@ -113,8 +114,8 @@ def display_weather_info(weather_data, imperial=False):
     weather_description = weather_data["weather"][0]["main"]
     temperature = weather_data["main"]["temp"]
  
-    print(f"{city}", end="")
-    print(f"\t{weather_description.capitalize()}", end=" ")
+    print(f"{city:^{PADDING}}", end="")
+    print(f"\t{weather_description.capitalize():^{PADDING}}", end=" ")
     print(f"({temperature}°{'F' if imperial else 'C'})")
 
 
